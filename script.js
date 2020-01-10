@@ -1,25 +1,18 @@
-var char   = 'abcdefghijklmonpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var num    = '1234567890';
-var sym    = '!@#$%^&*()~';
+var char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()";
 
-var charNum = document.getElementById("charNum");
-var numBox = document.getElementById("num");
-var symBox = document.getElementById("sym");
-var submit = document.getElementById("submit");
-var yourPw = document.getElementById("yourPw");
+var submit   = document.getElementById("submit");
+var charNum  = document.getElementById("charNum");
+var urpsswrd = document.getElementById("urpsswrd");
 
-submit.addEventListener("click",function(e){
-    var characters = char;
-    (numBox.checked) ? characters += num : '';
-    (symBox.checked) ? characters += sym : '';
-    yourPw.value = password(charNum.value, characters);
+submit.addEventListener("click",function(e) {
+    urpsswrd.value = password(charNum.value, char);
 });
 
-function password(l,characters) {
-    var pwd = '';
+function password(l,char) {
+    var psswrd = '';
 
-    for (var i = 0; i<l; i++){
-        pwd += characters.charAt(Math.floor(Math.random() * characters.length));
+    for (var i = 0; i<l; i++) {
+        psswrd += char.charAt(Math.floor(Math.random() * char.length));
     }
-    return pwd;
+    return psswrd;
 }
